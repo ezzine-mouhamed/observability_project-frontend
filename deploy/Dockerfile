@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20-alpine AS builder
+FROM node:22.11-alpine AS builder
 WORKDIR /app
 
 # Install pnpm
@@ -18,7 +18,7 @@ COPY . .
 RUN pnpm run build
 
 # Runner stage
-FROM node:20-alpine AS runner
+FROM node:22.11-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
