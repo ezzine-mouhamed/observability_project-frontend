@@ -197,7 +197,7 @@ export function BehaviorPatternsSection({
               <div className="rounded-lg bg-secondary p-3">
                 <p className="text-xs text-muted-foreground">Score</p>
                 <p className="text-lg font-semibold text-foreground">
-                  {consistency.consistency_score.?toFixed(3)}
+                  {consistency.consistency_score.toFixed(3)}
                 </p>
               </div>
               <div className="rounded-lg bg-secondary p-3">
