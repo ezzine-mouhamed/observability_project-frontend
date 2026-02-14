@@ -196,7 +196,7 @@ function TraceItem({ trace }: { trace: TaskTrace }) {
                     {formatDecisionType(obs.observation_type)}
                   </span>
                   <span className="font-mono text-muted-foreground">
-                    conf: {obs.confidence.toFixed(2)}
+                    conf: {obs.confidence.?toFixed(2)}
                   </span>
                 </div>
                 <p className="mt-1 text-muted-foreground">{obs.content}</p>

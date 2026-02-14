@@ -230,7 +230,7 @@ export function DecisionAnalyticsSection({
           <div>
             <p className="text-xs text-muted-foreground">Decisions/Trace</p>
             <p className="text-sm font-medium text-foreground">
-              {data.average_decisions_per_trace.toFixed(2)}
+              {data.average_decisions_per_trace.?toFixed(2)}
             </p>
           </div>
         </div>

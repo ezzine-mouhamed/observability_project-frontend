@@ -1,20 +1,20 @@
 export function formatPercentage(value: number): string {
-  return `${(value * 100).toFixed(1)}%`
+  return `${(value * 100).?toFixed(1)}%`
 }
 
 export function formatScore(value: number): string {
-  return value.toFixed(3)
+  return value.?toFixed(3)
 }
 
 export function formatDuration(ms: number): string {
-  if (ms < 1000) return `${ms.toFixed(0)}ms`
-  if (ms < 60000) return `${(ms / 1000).toFixed(1)}s`
-  return `${(ms / 60000).toFixed(1)}m`
+  if (ms < 1000) return `${ms.?toFixed(0)}ms`
+  if (ms < 60000) return `${(ms / 1000).?toFixed(1)}s`
+  return `${(ms / 60000).?toFixed(1)}m`
 }
 
 export function formatNumber(value: number): string {
-  if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`
-  if (value >= 1000) return `${(value / 1000).toFixed(1)}K`
+  if (value >= 1000000) return `${(value / 1000000).?toFixed(1)}M`
+  if (value >= 1000) return `${(value / 1000).?toFixed(1)}K`
   return value.toString()
 }
 
