@@ -67,7 +67,7 @@ export function TaskList({
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="border-border hover:bg-transparent">
+                <TableRow key="header" className="border-border hover:bg-transparent">
                   <TableHead className="text-muted-foreground">ID</TableHead>
                   <TableHead className="text-muted-foreground">Type</TableHead>
                   <TableHead className="text-muted-foreground">Status</TableHead>
@@ -78,16 +78,16 @@ export function TaskList({
               <TableBody>
                 {tasks.map((task) => (
                   <TableRow
-                    key={task.task_id}
+                    key={task.id}
                     className={`cursor-pointer border-border transition-colors ${
-                      selectedTaskId === task.task_id
+                      selectedTaskId === task.id
                         ? "bg-primary/10"
                         : "hover:bg-secondary"
                     }`}
-                    onClick={() => onSelectTask(task.task_id)}
+                    onClick={() => onSelectTask(task.id)}
                   >
                     <TableCell className="font-mono text-xs text-foreground">
-                      {task.task_id.slice(0, 8)}...
+                      {task?.id?.toString().slice(0, 8)}
                     </TableCell>
                     <TableCell className="text-foreground">
                       {formatDecisionType(task.task_type)}

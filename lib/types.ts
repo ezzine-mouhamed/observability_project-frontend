@@ -171,7 +171,7 @@ export interface TaskCreatePayload {
 }
 
 export interface Task {
-  task_id: string
+  id: string
   task_type: TaskType
   status: "pending" | "running" | "completed" | "failed"
   input_data: Record<string, unknown>
@@ -183,7 +183,7 @@ export interface Task {
 }
 
 export interface TaskTrace {
-  trace_id: string
+  id: string
   task_id: string
   agent_name: string
   operation: string

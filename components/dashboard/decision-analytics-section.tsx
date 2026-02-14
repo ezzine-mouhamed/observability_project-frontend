@@ -114,7 +114,7 @@ export function DecisionAnalyticsSection({
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
-              <TableRow className="border-border hover:bg-transparent">
+              <TableRow key="header" className="border-border hover:bg-transparent">
                 <TableHead className="text-muted-foreground">Type</TableHead>
                 <TableHead className="text-right text-muted-foreground">
                   Count
