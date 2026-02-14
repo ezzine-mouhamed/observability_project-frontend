@@ -216,9 +216,9 @@ export function DecisionAnalyticsSection({
           <div>
             <p className="text-xs text-muted-foreground">Avg Quality</p>
             <p
-              className={`text-sm font-medium ${qualityColor(data.average_decision_quality)}`}
+              className={`text-sm font-medium ${qualityColor(data.average_decision_quality ?? 0)}`}
             >
-              {formatScore(data.average_decision_quality)}
+              {formatScore(data.average_decision_quality ?? 0)}
             </p>
           </div>
           <div>

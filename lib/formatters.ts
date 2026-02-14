@@ -3,6 +3,9 @@ export function formatPercentage(value: number): string {
 }
 
 export function formatScore(value: number): string {
+  if (typeof value !== 'number' || isNaN(value)) {
+    return '0.000'
+  }
   return value.toFixed(3)
 }
 

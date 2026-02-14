@@ -51,13 +51,13 @@ export function BehaviorPatternsSection({
   }
 
   const errorEntries = Object.entries(data.error_patterns)
-  const sequences = data.operation_sequences.decision_engine
-  const sequenceEntries = sequences
+  const sequences = data.operation_sequences?.decision_engine
+  const sequenceEntries = sequences?.common_sequences
     ? Object.entries(sequences.common_sequences).sort(
         ([, a], [, b]) => b - a
       )
     : []
-  const consistency = data.behavioral_consistency.decision_engine
+  const consistency = data.behavioral_consistency?.decision_engine
   const timingEntries = Object.entries(data.timing_patterns)
     .sort(([a], [b]) => Number(a) - Number(b))
 

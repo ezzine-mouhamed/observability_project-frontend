@@ -61,40 +61,40 @@ export function PerformanceSection({
     ? [
         {
           name: "Excellent",
-          count: metrics.quality_distribution.excellent,
+          count: metrics?.quality_distribution?.excellent ?? 0,
           fill: QUALITY_COLORS.excellent,
         },
         {
           name: "Good",
-          count: metrics.quality_distribution.good,
+          count: metrics?.quality_distribution?.good ?? 0,
           fill: QUALITY_COLORS.good,
         },
         {
           name: "Acceptable",
-          count: metrics.quality_distribution.acceptable,
+          count: metrics?.quality_distribution?.acceptable ?? 0,
           fill: QUALITY_COLORS.acceptable,
         },
         {
           name: "Needs Improvement",
-          count: metrics.quality_distribution.needs_improvement,
+          count: metrics?.quality_distribution?.needs_improvement ?? 0,
           fill: QUALITY_COLORS.needs_improvement,
         },
         {
           name: "Poor",
-          count: metrics.quality_distribution.poor,
+          count: metrics?.quality_distribution?.poor ?? 0,
           fill: QUALITY_COLORS.poor,
         },
       ]
     : []
 
-  const trendData = trends?.daily.map((d) => ({
+  const trendData = trends?.daily?.map((d) => ({
     date: new Date(d.date).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
     }),
     "Avg Quality": d.avg_quality,
     "Success Rate": d.success_rate,
-  }))
+  })) ?? []
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -132,19 +132,19 @@ export function PerformanceSection({
             <div>
               <p className="text-xs text-muted-foreground">Avg Duration</p>
               <p className="text-sm font-medium text-foreground">
-                {formatDuration(metrics.average_duration_ms)}
+                {formatDuration(metrics.average_duration_ms ?? 0)}
               </p>
             </div>
             <div>
               <p className="text-xs text-muted-foreground">Decisions/Trace</p>
               <p className="text-sm font-medium text-foreground">
-                {metrics.average_decisions_per_trace.toFixed(2)}
+                {(metrics.average_decisions_per_trace ?? 0).toFixed(2)}
               </p>
             </div>
             <div>
               <p className="text-xs text-muted-foreground">Error Types</p>
               <p className="text-sm font-medium text-foreground">
-                {Object.keys(metrics.error_types).length}
+                {Object.keys(metrics.error_types ?? {}).length}
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export function PerformanceSection({
             <div>
               <p className="text-xs text-muted-foreground">Quality Score</p>
               <p className="text-sm font-medium text-foreground">
-                {formatScore(metrics.average_quality_score)}
+                {formatScore(metrics.average_quality_score ?? 0)}
               </p>
             </div>
             <div>

@@ -59,18 +59,17 @@ export function QualityMetricsSection({
     )
   }
 
-  const operationData = Object.entries(data.groups).map(([key, val], i) => ({
+  const operationData = Object.entries(data.groups ?? {}).map(([key, val], i) => ({
     name: formatDecisionType(key),
     quality: val.average_quality,
     traces: val.trace_count,
-    successRate: val.success_rate,
     fill: CHART_COLORS[i % CHART_COLORS.length],
-  }))
+  }));
 
   return (
     <SectionWrapper
       title="Quality by Operation"
-      description={`${data.total_traces} traces across ${Object.keys(data.groups).length} operation types`}
+      description={`${data.total_traces ?? 0} traces across ${Object.keys(data.groups ?? {}).length} operation types`}
       isLoading={isLoading}
     >
       <div className="h-64">
@@ -106,26 +105,26 @@ export function QualityMetricsSection({
       <div className="mt-4 grid grid-cols-4 gap-4 border-t border-border pt-4">
         <div>
           <p className="text-xs text-muted-foreground">Overall Avg</p>
-          <p className={`text-sm font-medium ${qualityColor(data.overall_metrics.average)}`}>
-            {formatScore(data.overall_metrics.average)}
+          <p className={`text-sm font-medium ${qualityColor(data.overall_metrics?.average ?? 0)}`}>
+            {formatScore(data.overall_metrics?.average ?? 0)}
           </p>
         </div>
         <div>
           <p className="text-xs text-muted-foreground">Median</p>
           <p className="text-sm font-medium text-foreground">
-            {formatScore(data.overall_metrics.median)}
+            {formatScore(data.overall_metrics?.median ?? 0)}
           </p>
         </div>
         <div>
           <p className="text-xs text-muted-foreground">Min</p>
           <p className="text-sm font-medium text-foreground">
-            {formatScore(data.overall_metrics.min)}
+            {formatScore(data.overall_metrics?.min ?? 0)}
           </p>
         </div>
         <div>
           <p className="text-xs text-muted-foreground">Max</p>
           <p className="text-sm font-medium text-foreground">
-            {formatScore(data.overall_metrics.max)}
+            {formatScore(data.overall_metrics?.max ?? 0)}
           </p>
         </div>
       </div>
