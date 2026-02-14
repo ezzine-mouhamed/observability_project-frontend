@@ -132,17 +132,17 @@ export async function fetchBehaviorPatterns(
 
 // Task Management endpoints
 export async function createTask(payload: TaskCreatePayload): Promise<Task> {
-  return postApi<Task>("/api/v1/tasks", payload)
+  return postApi<Task>("/api/tasks", payload)
 }
 
 export async function fetchTask(taskId: string): Promise<Task> {
-  return fetchApi<Task>(`/api/v1/tasks/${taskId}`)
+  return fetchApi<Task>(`/api/tasks/${taskId}`)
 }
 
 export async function fetchRecentTasks(): Promise<Task[]> {
-  return fetchApi<Task[]>("/api/v1/tasks/recent")
+  return fetchApi<Task[]>("/api/tasks/recent")
 }
 
 export async function fetchTaskTraces(taskId: string): Promise<TaskTrace[]> {
-  return fetchApi<TaskTrace[]>(`/api/v1/tasks/${taskId}/traces`)
+  return fetchApi<TaskTrace[]>(`/api/tasks/${taskId}/traces`)
 }
