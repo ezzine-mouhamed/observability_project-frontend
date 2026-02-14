@@ -69,9 +69,9 @@ export function trendIcon(trend: string): string {
 
 export function formatDecisionType(type: string): string {
   return type
-    .split("_")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ")
+    ?.split("_")
+    ?.map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    ?.join(" ")
 }
 
 export function formatDate(dateStr: string): string {

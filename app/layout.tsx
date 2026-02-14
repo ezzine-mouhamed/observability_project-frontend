@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${_inter.variable} ${_jetbrainsMono.variable} dark`}>
       <body className="font-sans antialiased">
         <AppShell>{children}</AppShell>
       </body>

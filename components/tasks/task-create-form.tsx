@@ -58,7 +58,7 @@ export function TaskCreateForm({ onTaskCreated }: TaskCreateFormProps) {
 
     try {
       const task = await createTask(payload)
-      setLastCreatedId(task.task_id)
+      setLastCreatedId(task.id)
       setInputText("")
       onTaskCreated()
     } catch (err) {

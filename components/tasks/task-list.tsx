@@ -1,5 +1,4 @@
 "use client"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Table,
@@ -64,7 +63,7 @@ export function TaskList({
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="max-h-[400px] overflow-auto">
             <Table>
               <TableHeader>
                 <TableRow key="header" className="border-border hover:bg-transparent">

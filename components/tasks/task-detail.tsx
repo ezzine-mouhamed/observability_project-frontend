@@ -113,7 +113,7 @@ function TraceItem({ trace }: { trace: TaskTrace }) {
       <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg bg-secondary p-4 text-left transition-colors hover:bg-secondary/80">
         <div className="flex items-center gap-3">
           <span className="font-mono text-xs text-muted-foreground">
-            {trace.trace_id.slice(0, 8)}
+            {trace?.id?.toString().slice(0, 8)}
           </span>
           <span className="text-sm font-medium text-foreground">
             {formatDecisionType(trace.operation)}
@@ -181,25 +181,25 @@ function TraceItem({ trace }: { trace: TaskTrace }) {
           </div>
         )}
 
-        {trace.observations.length > 0 && (
+        {trace?.observations?.length > 0 && (
           <div className="rounded-lg border border-border p-3">
             <div className="mb-2 flex items-center gap-2">
               <Eye className="h-3.5 w-3.5 text-primary" />
               <h5 className="text-xs font-medium text-foreground">
-                Observations ({trace.observations.length})
+                Observations ({trace?.observations?.length})
               </h5>
             </div>
-            {trace.observations.map((obs, i) => (
+            {trace?.observations?.map((obs, i) => (
               <div key={i} className="mb-2 rounded bg-secondary p-2 text-xs last:mb-0">
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-foreground">
-                    {formatDecisionType(obs.observation_type)}
+                    {formatDecisionType(obs?.observation_type)}
                   </span>
                   <span className="font-mono text-muted-foreground">
-                    conf: {obs.confidence.toFixed(2)}
+                    conf: {obs?.confidence?.toFixed(2)}
                   </span>
                 </div>
-                <p className="mt-1 text-muted-foreground">{obs.content}</p>
+                <p className="mt-1 text-muted-foreground">{obs?.content}</p>
               </div>
             ))}
           </div>
@@ -233,7 +233,7 @@ function TracesView({ taskId }: { taskId: string }) {
   return (
     <div className="flex flex-col gap-3">
       {traces.map((trace) => (
-        <TraceItem key={trace.trace_id} trace={trace} />
+        <TraceItem key={trace.id} trace={trace} />
       ))}
     </div>
   )
@@ -275,7 +275,7 @@ export function TaskDetail({ taskId }: TaskDetailProps) {
           <FileText className="h-4 w-4" />
           Task Detail
           <Badge variant="outline" className="ml-2 font-mono text-xs">
-            {task.task_id}
+            {task.id}
           </Badge>
         </CardTitle>
       </CardHeader>
